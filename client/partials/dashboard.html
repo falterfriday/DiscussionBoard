@@ -32,7 +32,7 @@
 			<input required ng-model='newTopic.name'>
 			<div ng-messages="newTopic.name.$error">
 				<div ng-message ="required">Topic is required</div>
-			</div>			
+			</div>
 		</md-input-container>
 
 		<md-input-container class="md-block">
@@ -55,27 +55,31 @@
 				<div class="md-media-sm card-media"></div>
 			</md-card-title-media>
 		</md-card-title>
-		<md-card-actions layout="row" layout-align="end">
-			<md-icon class="material-icons" ng-style="{color: 'grey'}">message</md-icon><span>{{topic._messages.length}}</span>
-			<md-button  ng-if= "!(likes.includes(topic._id))" 
- 						class="md-fab md-mini md-icon-button" 
-						class ="md-primary" 
+		<md-card-actions layout="row" layout-align="end center">
+			<md-button>
+				<md-icon class="material-icons" ng-style="{color: 'grey'}">message</md-icon>
+			</md-button>
+				<span>{{topic._messages.length}}</span>
+			<md-button  ng-if= "!(likes.includes(topic._id))"
+ 						class="md-fab md-mini md-icon-button"
+						class ="md-primary"
 						ng-click="createLike(topic._id)">
 						<md-icon class = "material-icons" ng-style="{color: 'white'}">thumb_up</md-icon>
 			</md-button>
-			<md-button  ng-if= "likes.includes(topic._id)" 
-						class="md-fab md-mini md-icon-button" 
-						class ="md-primary" 
+			<md-button  ng-if= "likes.includes(topic._id)"
+						class="md-fab md-mini md-icon-button"
+						class ="md-primary"
 						ng-click="destroyLike(topic._id)">
 						<md-icon class = "material-icons" ng-style="{color: 'grey'}">thumb_up</md-icon>
-						
+
 			</md-button>
-			<md-button	ng-if= "user._id == topic._user._id" 
-						class="md-fab md-mini md-icon-button" 
-						class ="md-primary" 
+			<md-button	ng-if= "user._id == topic._user._id"
+						class="md-fab md-mini md-icon-button"
+						class ="md-primary"
 						ng-click="destroyTopic(topic._id)">
 						<md-icon class = "material-icons" ng-style="{color: 'white'}">delete</md-icon>
-			</md-button><span>{{topic._likes.length}}</span>
+			</md-button>
+				<span>{{topic._likes.length}}</span>
 		</md-card-actions>
 	</md-button>
 	</md-card>
